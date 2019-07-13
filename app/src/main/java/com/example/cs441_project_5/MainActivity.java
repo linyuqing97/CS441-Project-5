@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter myAdapter;
     RecyclerView.LayoutManager layoutManager;
-    int [] input = {1,2,3,4,5,6,7,87};
+    String [] input = {"1","2","3","4","5","6","7","87"};
 
 
 
@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        recyclerView = findViewById(R.id.recycleView);
 
         layoutManager= new LinearLayoutManager(this);
-        recyclerView.setHasFixedSize(true);
+       // recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 
         myAdapter = new recycleAdapter(input);

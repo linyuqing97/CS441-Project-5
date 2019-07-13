@@ -4,6 +4,7 @@ package com.example.cs441_project_5;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +13,10 @@ import android.widget.TextView;
 
 public class recycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    int [] item;
-    public recycleAdapter(int [] item ){
+    String [] items;
+    public recycleAdapter(String [] items ){
 
-        this.item = item;
+        this.items = items;
     }
 
     @Override
@@ -28,14 +29,14 @@ public class recycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
-        ((Item)holder).textView.setText(item[position]);
-
+        ((Item)holder).textView.setText(items[position]);
     }
 
     @Override
     public int getItemCount() {
-        return item.length;
+        return items.length;
     }
+
     public class Item extends  RecyclerView.ViewHolder {
         TextView textView;
 
