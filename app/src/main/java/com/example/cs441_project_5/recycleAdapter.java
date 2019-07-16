@@ -10,14 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class recycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    String [] items;
-    public recycleAdapter(String [] items ){
+    ArrayList items = new ArrayList<String>();
+    public recycleAdapter(ArrayList<String>items){
 
         this.items = items;
     }
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
@@ -29,12 +33,12 @@ public class recycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
-        ((Item)holder).textView.setText(items[position]);
+        ((Item)holder).textView.setText(items.get(position).toString());
     }
 
     @Override
     public int getItemCount() {
-        return items.length;
+        return items.size();
     }
 
     public class Item extends  RecyclerView.ViewHolder {
@@ -44,5 +48,8 @@ public class recycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             super(itemView);
             textView = (TextView)itemView.findViewById(R.id.textView);
         }
+
     }
+
+
 }
